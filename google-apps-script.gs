@@ -143,78 +143,86 @@ function configurarHojas() {
   );
 }
 
-// ===== RECIBIR PEDIDOS DESDE LA WEB =====
-function doPost(e) {
+// ===== REGISTRAR PEDIDO (logica compartida) =====
+function registrarPedido(data) {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const pedidos = ss.getSheetByName('Pedidos');
+
+  if (!pedidos) {
+    throw new Error('Hoja Pedidos no encontrada');
+  }
+
+  // Construir detalle legible
+  var detalle = '';
+  var mensajes = '';
+
+  if (data.cajas && Array.isArray(data.cajas)) {
+    data.cajas.forEach(function(caja, idx) {
+      detalle += 'Caja ' + (idx + 1) + ' (x' + caja.size + '): ';
+      if (caja.chocolates && Array.isArray(caja.chocolates)) {
+        var chocos = caja.chocolates.map(function(c, i) {
+          return (i + 1) + '.' + c.type + '/' + c.filling;
+        });
+        detalle += chocos.join(', ');
+      }
+      detalle += ' | ';
+
+      if (caja.message) {
+        mensajes += 'Caja ' + (idx + 1) + ': "' + caja.message + '" | ';
+      }
+    });
+  }
+
+  // Agregar fila
+  pedidos.appendRow([
+    new Date(),
+    data.nombre || '',
+    data.telefono || '',
+    data.municipio || '',
+    data.direccion || '',
+    data.fechaEntrega || '',
+    data.horaEntrega || '',
+    detalle,
+    data.cantidadCajas || 0,
+    data.total || 0,
+    data.metodoPago || '',
+    mensajes,
+    data.notas || '',
+    'Pendiente'
+  ]);
+}
+
+// ===== RECIBIR PEDIDOS VIA GET (imagen pixel - funciona en todos los navegadores) =====
+function doGet(e) {
   try {
-    // Soporta tanto JSON directo como datos de formulario
-    var rawData;
     if (e.parameter && e.parameter.data) {
-      rawData = e.parameter.data; // viene de formulario HTML
-    } else if (e.postData && e.postData.contents) {
-      rawData = e.postData.contents; // viene de fetch JSON
+      var data = JSON.parse(e.parameter.data);
+      registrarPedido(data);
+      // Devolver un pixel transparente 1x1
+      return ContentService.createTextOutput('OK');
     }
-
-    const data = JSON.parse(rawData);
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
-    const pedidos = ss.getSheetByName('Pedidos');
-
-    if (!pedidos) {
-      return response({ error: 'Hoja Pedidos no encontrada' });
-    }
-
-    // Construir detalle legible
-    let detalle = '';
-    let mensajes = '';
-
-    if (data.cajas && Array.isArray(data.cajas)) {
-      data.cajas.forEach(function(caja, idx) {
-        detalle += 'Caja ' + (idx + 1) + ' (x' + caja.size + '): ';
-        if (caja.chocolates && Array.isArray(caja.chocolates)) {
-          const chocos = caja.chocolates.map(function(c, i) {
-            return (i + 1) + '.' + c.type + '/' + c.filling;
-          });
-          detalle += chocos.join(', ');
-        }
-        detalle += ' | ';
-
-        if (caja.message) {
-          mensajes += 'Caja ' + (idx + 1) + ': "' + caja.message + '" | ';
-        }
-      });
-    }
-
-    // Agregar fila
-    pedidos.appendRow([
-      new Date(),                          // Fecha pedido
-      data.nombre || '',                   // Nombre
-      data.telefono || '',                 // Telefono
-      data.municipio || '',                // Municipio
-      data.direccion || '',                // Direccion
-      data.fechaEntrega || '',             // Fecha entrega
-      data.horaEntrega || '',              // Hora entrega
-      detalle,                             // Detalle
-      data.cantidadCajas || 0,             // Cant cajas
-      data.total || 0,                     // Total
-      data.metodoPago || '',               // Metodo pago
-      mensajes,                            // Mensajes
-      data.notas || '',                    // Notas
-      'Pendiente'                          // Estado
-    ]);
-
-    return response({ status: 'ok', message: 'Pedido registrado' });
-
+    return ContentService.createTextOutput('Coral Rosse API activa');
   } catch (error) {
-    return response({ error: error.toString() });
+    return ContentService.createTextOutput('Error: ' + error.toString());
   }
 }
 
-// Para que funcione tambien con GET (pruebas)
-function doGet(e) {
-  return response({ status: 'ok', message: 'Coral Rosse API activa' });
-}
+// ===== RECIBIR PEDIDOS VIA POST (respaldo) =====
+function doPost(e) {
+  try {
+    var rawData;
+    if (e.parameter && e.parameter.data) {
+      rawData = e.parameter.data;
+    } else if (e.postData && e.postData.contents) {
+      rawData = e.postData.contents;
+    }
 
-function response(data) {
-  return ContentService
-    .createTextOutput(JSON.stringify(data))
-    .setMimeType(ContentService.MimeType.JSON);
+    var data = JSON.parse(rawData);
+    registrarPedido(data);
+    return ContentService.createTextOutput(JSON.stringify({status: 'ok'}))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch (error) {
+    return ContentService.createTextOutput(JSON.stringify({error: error.toString()}))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
 }

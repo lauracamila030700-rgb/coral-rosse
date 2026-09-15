@@ -440,36 +440,13 @@ sendWhatsApp.addEventListener('click', () => {
     showToast('Pedido enviado - carrito limpiado');
 });
 
-// ===== GOOGLE SHEETS (via iframe para evitar CORS) =====
+// ===== GOOGLE SHEETS (via imagen pixel - funciona en TODOS los navegadores) =====
 function sendToGoogleSheets(data) {
     if (!GOOGLE_SHEETS_URL) return;
 
-    // Crear iframe oculto como destino del formulario
-    const iframe = document.createElement('iframe');
-    iframe.name = 'sheets-frame';
-    iframe.style.display = 'none';
-    document.body.appendChild(iframe);
-
-    // Crear formulario con los datos como campo oculto
-    const form = document.createElement('form');
-    form.method = 'POST';
-    form.action = GOOGLE_SHEETS_URL;
-    form.target = 'sheets-frame';
-
-    const input = document.createElement('input');
-    input.type = 'hidden';
-    input.name = 'data';
-    input.value = JSON.stringify(data);
-    form.appendChild(input);
-
-    document.body.appendChild(form);
-    form.submit();
-    document.body.removeChild(form);
-
-    // Limpiar iframe despues de unos segundos
-    setTimeout(() => {
-        if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
-    }, 5000);
+    const encoded = encodeURIComponent(JSON.stringify(data));
+    const img = new Image();
+    img.src = GOOGLE_SHEETS_URL + '?data=' + encoded;
 }
 
 // ===== TOAST =====
