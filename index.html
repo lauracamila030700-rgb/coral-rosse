@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coral Rosse Chocolateria</title>
+    <meta name="description" content="Chocolates artesanales en forma de corazon. Personaliza tu caja con los rellenos que mas te gusten. Envios en Garcia Rovira, Santander.">
+    <link rel="icon" type="image/jpeg" href="img/logo-cr.jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#inicio" class="nav-logo">
+                <img src="img/logo-cr.jpeg" alt="Coral Rosse" class="nav-logo-img">
+                <span class="nav-brand">Coral Rosse</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#chocolates" class="nav-link">Chocolates</a></li>
+                <li><a href="#precios" class="nav-link">Precios</a></li>
+                <li><a href="#pedido" class="nav-link nav-link-cta">Hacer Pedido</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="inicio">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <img src="img/logo-full.jpeg" alt="Coral Rosse Chocolateria" class="hero-logo">
+            <p class="hero-subtitle">Chocolates artesanales en forma de corazon</p>
+            <p class="hero-tagline">Hechos con amor en Garcia Rovira, Santander</p>
+            <div class="hero-buttons">
+                <a href="#pedido" class="btn btn-primary hero-cta">Hacer mi pedido</a>
+                <button class="btn btn-ghost hero-cta" id="openCatalogBtn">Ver carta completa</button>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Descubre</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- ========== CHOCOLATES ========== -->
+    <section class="section" id="chocolates">
+        <div class="container">
+            <h2 class="section-title">Nuestros Chocolates</h2>
+            <p class="section-desc">Corazones de chocolate artesanales con los rellenos mas deliciosos</p>
+
+            <!-- Tipos de chocolate -->
+            <div class="choco-types">
+                <div class="choco-type-card card-blanco">
+                    <div class="choco-visual">
+                        <div class="heart-3d heart-white">
+                            <svg viewBox="0 0 120 110" class="heart-svg-3d">
+                                <defs>
+                                    <radialGradient id="whiteGrad" cx="40%" cy="35%" r="60%">
+                                        <stop offset="0%" stop-color="#FFFEF8"/>
+                                        <stop offset="40%" stop-color="#FFF5DC"/>
+                                        <stop offset="80%" stop-color="#F0E4C4"/>
+                                        <stop offset="100%" stop-color="#D4C8A8"/>
+                                    </radialGradient>
+                                    <filter id="whiteShadow">
+                                        <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#B8A880" flood-opacity="0.35"/>
+                                    </filter>
+                                </defs>
+                                <path d="M60 100 L12 52 Q0 34 18 20 Q36 6 60 30 Q84 6 102 20 Q120 34 108 52 Z" fill="url(#whiteGrad)" filter="url(#whiteShadow)"/>
+                                <path d="M60 30 Q36 6 18 20 Q8 28 10 40" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="3" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="choco-info">
+                        <h3>Chocolate Blanco</h3>
+                        <p>Suave y cremoso, con un toque dulce y elegante que se derrite en tu boca</p>
+                    </div>
+                </div>
+                <div class="choco-type-card card-negro">
+                    <div class="choco-visual">
+                        <div class="heart-3d heart-dark">
+                            <svg viewBox="0 0 120 110" class="heart-svg-3d">
+                                <defs>
+                                    <radialGradient id="darkGrad" cx="40%" cy="35%" r="60%">
+                                        <stop offset="0%" stop-color="#6B3A2A"/>
+                                        <stop offset="40%" stop-color="#4A2518"/>
+                                        <stop offset="80%" stop-color="#3A1C12"/>
+                                        <stop offset="100%" stop-color="#2A1108"/>
+                                    </radialGradient>
+                                    <filter id="darkShadow">
+                                        <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#1A0A04" flood-opacity="0.45"/>
+                                    </filter>
+                                </defs>
+                                <path d="M60 100 L12 52 Q0 34 18 20 Q36 6 60 30 Q84 6 102 20 Q120 34 108 52 Z" fill="url(#darkGrad)" filter="url(#darkShadow)"/>
+                                <path d="M60 30 Q36 6 18 20 Q8 28 10 40" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="3" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="choco-info">
+                        <h3>Chocolate Negro</h3>
+                        <p>Intenso y con caracter, para los verdaderos amantes del cacao puro</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rellenos -->
+            <h3 class="subsection-title">Sabores de Relleno</h3>
+            <div class="fillings-grid">
+                <div class="filling-card">
+                    <div class="filling-visual filling-arequipe">
+                        <svg viewBox="0 0 90 90" class="filling-svg-lg">
+                            <defs>
+                                <radialGradient id="arequipeGrad" cx="45%" cy="40%" r="50%">
+                                    <stop offset="0%" stop-color="#F0C070"/>
+                                    <stop offset="50%" stop-color="#D4943C"/>
+                                    <stop offset="100%" stop-color="#B07020"/>
+                                </radialGradient>
+                            </defs>
+                            <circle cx="45" cy="45" r="35" fill="url(#arequipeGrad)"/>
+                            <ellipse cx="38" cy="35" rx="18" ry="12" fill="rgba(255,220,150,0.45)"/>
+                            <path d="M25 58 Q35 65 45 60 Q55 55 65 62" fill="none" stroke="rgba(180,120,40,0.5)" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M20 52 Q30 58 40 54 Q50 50 60 55" fill="none" stroke="rgba(180,120,40,0.3)" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h4>Arequipe</h4>
+                    <p>Dulce de leche cremoso y tradicional colombiano</p>
+                </div>
+                <div class="filling-card">
+                    <div class="filling-visual filling-nutella">
+                        <svg viewBox="0 0 90 90" class="filling-svg-lg">
+                            <defs>
+                                <radialGradient id="nutellaGrad" cx="45%" cy="38%" r="50%">
+                                    <stop offset="0%" stop-color="#8B5E3C"/>
+                                    <stop offset="50%" stop-color="#5C3317"/>
+                                    <stop offset="100%" stop-color="#3A1E0A"/>
+                                </radialGradient>
+                            </defs>
+                            <circle cx="45" cy="45" r="35" fill="url(#nutellaGrad)"/>
+                            <ellipse cx="36" cy="34" rx="16" ry="10" fill="rgba(160,100,60,0.4)"/>
+                            <!-- avellanas -->
+                            <ellipse cx="55" cy="58" rx="6" ry="5" fill="#C4956A" transform="rotate(-20 55 58)"/>
+                            <ellipse cx="55" cy="58" rx="4" ry="3" fill="#D4A87A" transform="rotate(-20 55 58)"/>
+                            <ellipse cx="35" cy="62" rx="5" ry="4" fill="#C4956A" transform="rotate(15 35 62)"/>
+                            <ellipse cx="35" cy="62" rx="3.5" ry="2.5" fill="#D4A87A" transform="rotate(15 35 62)"/>
+                        </svg>
+                    </div>
+                    <h4>Nutella</h4>
+                    <p>Crema de avellanas irresistible y adictiva</p>
+                </div>
+                <div class="filling-card">
+                    <div class="filling-visual filling-frutos">
+                        <svg viewBox="0 0 90 90" class="filling-svg-lg">
+                            <!-- base mix -->
+                            <circle cx="45" cy="48" r="32" fill="#F5EDE0" opacity="0.5"/>
+                            <!-- almendras -->
+                            <ellipse cx="30" cy="50" rx="9" ry="5" fill="#D4A860" transform="rotate(-30 30 50)"/>
+                            <ellipse cx="30" cy="50" rx="7" ry="3.5" fill="#E0BC78" transform="rotate(-30 30 50)"/>
+                            <!-- mani -->
+                            <ellipse cx="55" cy="55" rx="7" ry="4.5" fill="#C8944C" transform="rotate(20 55 55)"/>
+                            <ellipse cx="55" cy="55" rx="5" ry="3" fill="#D4A460" transform="rotate(20 55 55)"/>
+                            <!-- nuez -->
+                            <circle cx="48" cy="38" r="7" fill="#8B6914"/>
+                            <path d="M42 38 Q48 33 54 38" fill="none" stroke="#A07828" stroke-width="1.5"/>
+                            <path d="M42 38 Q48 43 54 38" fill="none" stroke="#6B5010" stroke-width="1"/>
+                            <!-- arandanos -->
+                            <circle cx="32" cy="36" r="5" fill="#4A1050"/>
+                            <circle cx="32" cy="36" r="3.5" fill="#6B2080"/>
+                            <ellipse cx="31" cy="34" rx="1.5" ry="1" fill="rgba(255,255,255,0.2)"/>
+                            <circle cx="62" cy="44" r="4.5" fill="#4A1050"/>
+                            <circle cx="62" cy="44" r="3" fill="#6B2080"/>
+                            <ellipse cx="61" cy="42.5" rx="1.2" ry="0.8" fill="rgba(255,255,255,0.2)"/>
+                            <circle cx="44" cy="60" r="4" fill="#5A1860"/>
+                            <circle cx="44" cy="60" r="2.8" fill="#7A2890"/>
+                            <ellipse cx="43" cy="58.5" rx="1" ry="0.7" fill="rgba(255,255,255,0.2)"/>
+                        </svg>
+                    </div>
+                    <h4>Frutos Secos + Arandanos</h4>
+                    <p>Mix natural de nueces, almendras y arandanos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PRECIOS ========== -->
+    <section class="section section-alt" id="precios">
+        <div class="container">
+            <h2 class="section-title">Presentaciones y Precios</h2>
+            <p class="section-desc">Elige la presentacion perfecta para tu ocasion especial</p>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-ribbon">Individual</div>
+                    <h3 class="pricing-title">Caja x1</h3>
+                    <p class="pricing-desc">Un corazon de chocolate perfecto para sorprender</p>
+                    <div class="pricing-options">
+                        <div class="pricing-option">
+                            <span class="pricing-label">Arequipe o Frutos Secos</span>
+                            <span class="pricing-price">$8.000</span>
+                        </div>
+                        <div class="pricing-option">
+                            <span class="pricing-label">Nutella</span>
+                            <span class="pricing-price">$10.000</span>
+                        </div>
+                    </div>
+                    <a href="#pedido" class="btn btn-outline">Ordenar</a>
+                </div>
+
+                <div class="pricing-card pricing-featured">
+                    <div class="pricing-ribbon">Popular</div>
+                    <h3 class="pricing-title">Caja x4</h3>
+                    <p class="pricing-desc">Cuatro corazones para compartir o regalar</p>
+                    <div class="pricing-options">
+                        <div class="pricing-option">
+                            <span class="pricing-label">Arequipe o Frutos Secos</span>
+                            <span class="pricing-price">$30.000</span>
+                        </div>
+                        <div class="pricing-option">
+                            <span class="pricing-label">Nutella</span>
+                            <span class="pricing-price">$36.000</span>
+                        </div>
+                        <div class="pricing-option pricing-option-mix">
+                            <span class="pricing-label">Personalizada (mix)</span>
+                            <span class="pricing-price">Desde $30.000</span>
+                        </div>
+                    </div>
+                    <p class="pricing-note">*Cada corazon de Nutella en caja mixta agrega $1.500 al precio base</p>
+                    <a href="#pedido" class="btn btn-primary">Ordenar</a>
+                </div>
+            </div>
+
+            <div class="catalog-cta">
+                <button class="btn btn-outline" id="openCatalogBtn2">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5-7l-3 3.72L9 13l-3 4h12l-4-5z"/></svg>
+                    Ver carta completa con fotos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PEDIDO ========== -->
+    <section class="section" id="pedido">
+        <div class="container">
+            <h2 class="section-title">Arma tu Pedido</h2>
+            <p class="section-desc">Personaliza cada caja a tu gusto</p>
+
+            <!-- Configurador de caja -->
+            <div class="order-builder" id="orderBuilder">
+                <div class="builder-header">
+                    <h3>Configurar Nueva Caja</h3>
+                </div>
+
+                <div class="builder-step">
+                    <label class="builder-label">Tamano de la caja</label>
+                    <div class="box-size-selector">
+                        <button class="box-size-btn active" data-size="1" id="sizeBtn1">
+                            <span class="box-size-icon">
+                                <svg viewBox="0 0 40 36" class="mini-heart"><path d="M20 34 L4 18 Q0 12 6 7 Q12 2 20 10 Q28 2 34 7 Q40 12 36 18 Z" fill="currentColor"/></svg>
+                            </span>
+                            <span>Caja x1</span>
+                        </button>
+                        <button class="box-size-btn" data-size="4" id="sizeBtn4">
+                            <span class="box-size-icon">
+                                <svg viewBox="0 0 40 36" class="mini-heart"><path d="M20 34 L4 18 Q0 12 6 7 Q12 2 20 10 Q28 2 34 7 Q40 12 36 18 Z" fill="currentColor"/></svg>
+                                <svg viewBox="0 0 40 36" class="mini-heart"><path d="M20 34 L4 18 Q0 12 6 7 Q12 2 20 10 Q28 2 34 7 Q40 12 36 18 Z" fill="currentColor"/></svg>
+                                <svg viewBox="0 0 40 36" class="mini-heart"><path d="M20 34 L4 18 Q0 12 6 7 Q12 2 20 10 Q28 2 34 7 Q40 12 36 18 Z" fill="currentColor"/></svg>
+                                <svg viewBox="0 0 40 36" class="mini-heart"><path d="M20 34 L4 18 Q0 12 6 7 Q12 2 20 10 Q28 2 34 7 Q40 12 36 18 Z" fill="currentColor"/></svg>
+                            </span>
+                            <span>Caja x4</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="builder-step">
+                    <label class="builder-label">Personaliza tus corazones</label>
+                    <div class="chocolates-config" id="chocolatesConfig"></div>
+                </div>
+
+                <!-- Mensaje de la caja -->
+                <div class="builder-step">
+                    <label class="builder-label">Mensaje para la caja</label>
+                    <div class="box-message-wrap">
+                        <input type="text" id="boxMessage" class="box-message-input" placeholder="Ej: Te amo, Feliz cumple, Para ti..." maxlength="80">
+                        <span class="box-message-count"><span id="msgCount">0</span>/80</span>
+                    </div>
+                </div>
+
+                <div class="builder-price">
+                    <span>Precio de esta caja:</span>
+                    <span class="builder-price-value" id="boxPrice">$8.000</span>
+                </div>
+
+                <button class="btn btn-primary btn-block" id="addToCartBtn">Agregar al carrito</button>
+            </div>
+
+            <!-- Carrito -->
+            <div class="cart" id="cart">
+                <div class="cart-header">
+                    <h3>Tu Carrito</h3>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </div>
+                <div class="cart-empty" id="cartEmpty">
+                    <svg viewBox="0 0 100 90" class="cart-empty-icon">
+                        <path d="M50 85 L10 45 Q0 30 15 18 Q30 5 50 25 Q70 5 85 18 Q100 30 90 45 Z" fill="none" stroke="#DDD" stroke-width="3" stroke-dasharray="5,5"/>
+                    </svg>
+                    <p>Tu carrito esta vacio</p>
+                    <p class="cart-empty-hint">Configura una caja arriba y agregala</p>
+                </div>
+                <div class="cart-items" id="cartItems"></div>
+                <div class="cart-total" id="cartTotal" style="display:none;">
+                    <div class="cart-total-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotalValue">$0</span>
+                    </div>
+                    <div class="cart-total-row cart-total-main">
+                        <span>Total:</span>
+                        <span id="totalValue">$0</span>
+                    </div>
+                    <p class="cart-domicilio-note">* El domicilio tiene un costo adicional segun la ubicacion</p>
+                </div>
+            </div>
+
+            <!-- Formulario de Entrega -->
+            <div class="delivery-form" id="deliveryForm" style="display:none;">
+                <h3 class="form-title">Datos de Entrega</h3>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="clientName">Nombre completo *</label>
+                        <input type="text" id="clientName" placeholder="Tu nombre completo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="clientPhone">Telefono / WhatsApp *</label>
+                        <input type="tel" id="clientPhone" placeholder="Ej: 3131234567" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="municipality">Municipio *</label>
+                        <div class="custom-select" id="municipalitySelect">
+                            <input type="text" id="municipality" placeholder="Buscar municipio..." autocomplete="off" required>
+                            <ul class="select-dropdown" id="municipalityDropdown">
+                                <li data-value="Malaga">Malaga</li>
+                                <li data-value="San Jose de Miranda">San Jose de Miranda</li>
+                                <li data-value="Enciso">Enciso</li>
+                                <li data-value="Concepcion">Concepcion</li>
+                                <li data-value="Cerrito">Cerrito</li>
+                                <li data-value="Capitanejo">Capitanejo</li>
+                                <li data-value="Carcasi">Carcasi</li>
+                                <li data-value="Guaca">Guaca</li>
+                                <li data-value="Macaravita">Macaravita</li>
+                                <li data-value="Molagavita">Molagavita</li>
+                                <li data-value="San Andres">San Andres</li>
+                                <li data-value="San Miguel">San Miguel</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Direccion de entrega *</label>
+                        <input type="text" id="address" placeholder="Direccion completa" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="deliveryDate">Fecha de entrega *</label>
+                        <input type="date" id="deliveryDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="deliveryTime">Hora de entrega *</label>
+                        <input type="time" id="deliveryTime" required>
+                    </div>
+                    <div class="form-group form-group-full">
+                        <label>Metodo de pago *</label>
+                        <div class="payment-options">
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="Transferencia">
+                                <span class="payment-card">
+                                    <svg viewBox="0 0 24 24" class="payment-icon"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zm-8-1h4v-2h-4v2zm-6-4h10v-2H6v2zm0-4h10V7H6v2z" fill="currentColor"/></svg>
+                                    Transferencia
+                                </span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="Efectivo">
+                                <span class="payment-card">
+                                    <svg viewBox="0 0 24 24" class="payment-icon"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H11.5v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.65c.09 1.58 1.25 2.47 2.85 2.79V19h1.72v-1.67c1.52-.29 2.72-1.16 2.72-2.74 0-2.2-1.86-2.97-3.63-3.45z" fill="currentColor"/></svg>
+                                    Efectivo
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-full">
+                        <label for="orderNotes">Notas adicionales (opcional)</label>
+                        <textarea id="orderNotes" placeholder="Instrucciones especiales de entrega..." rows="2"></textarea>
+                    </div>
+                </div>
+
+                <div class="delivery-note">
+                    <svg viewBox="0 0 24 24" class="note-icon"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="currentColor"/></svg>
+                    <span>El domicilio tiene un costo adicional que varia segun el municipio. Te confirmaremos el valor por WhatsApp.</span>
+                </div>
+
+                <button class="btn btn-whatsapp btn-block" id="sendWhatsApp">
+                    <svg viewBox="0 0 24 24" class="whatsapp-icon"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/></svg>
+                    Enviar Pedido por WhatsApp
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========== MODAL CATALOGO ========== -->
+    <div class="modal-overlay" id="catalogModal">
+        <div class="modal">
+            <button class="modal-close" id="closeCatalog">&times;</button>
+            <img src="img/catalogo.jpeg" alt="Carta completa Coral Rosse" class="modal-img">
+        </div>
+    </div>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-name">Coral Rosse</span>
+                    <span class="footer-tagline">CHOCOLATERIA</span>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/coral_rosse03/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" class="social-icon"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" fill="currentColor"/></svg>
+                    </a>
+                    <a href="https://wa.me/573132399600" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp">
+                        <svg viewBox="0 0 24 24" class="social-icon"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/></svg>
+                    </a>
+                </div>
+                <p class="footer-copy">Garcia Rovira, Santander</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp floating button -->
+    <a href="https://wa.me/573132399600" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="white"/></svg>
+    </a>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
