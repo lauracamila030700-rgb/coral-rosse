@@ -146,7 +146,15 @@ function configurarHojas() {
 // ===== RECIBIR PEDIDOS DESDE LA WEB =====
 function doPost(e) {
   try {
-    const data = JSON.parse(e.postData.contents);
+    // Soporta tanto JSON directo como datos de formulario
+    var rawData;
+    if (e.parameter && e.parameter.data) {
+      rawData = e.parameter.data; // viene de formulario HTML
+    } else if (e.postData && e.postData.contents) {
+      rawData = e.postData.contents; // viene de fetch JSON
+    }
+
+    const data = JSON.parse(rawData);
     const ss = SpreadsheetApp.getActiveSpreadsheet();
     const pedidos = ss.getSheetByName('Pedidos');
 

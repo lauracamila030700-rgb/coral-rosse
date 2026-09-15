@@ -424,20 +424,52 @@ sendWhatsApp.addEventListener('click', () => {
 
     // Abrir WhatsApp
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+
+    // Limpiar carrito y formulario
+    cart = [];
+    cartIdCounter = 0;
+    renderCart();
+    document.getElementById('clientName').value = '';
+    document.getElementById('clientPhone').value = '';
+    municipalityInput.value = '';
+    document.getElementById('address').value = '';
+    document.getElementById('deliveryDate').value = '';
+    document.getElementById('deliveryTime').value = '';
+    document.querySelectorAll('input[name="paymentMethod"]').forEach(r => r.checked = false);
+    document.getElementById('orderNotes').value = '';
+    showToast('Pedido enviado - carrito limpiado');
 });
 
-// ===== GOOGLE SHEETS =====
+// ===== GOOGLE SHEETS (via iframe para evitar CORS) =====
 function sendToGoogleSheets(data) {
-    if (!GOOGLE_SHEETS_URL) return; // No configurado aun
+    if (!GOOGLE_SHEETS_URL) return;
 
-    fetch(GOOGLE_SHEETS_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-    }).catch(() => {
-        // Silencioso - el pedido ya se envio por WhatsApp
-    });
+    // Crear iframe oculto como destino del formulario
+    const iframe = document.createElement('iframe');
+    iframe.name = 'sheets-frame';
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+
+    // Crear formulario con los datos como campo oculto
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = GOOGLE_SHEETS_URL;
+    form.target = 'sheets-frame';
+
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = 'data';
+    input.value = JSON.stringify(data);
+    form.appendChild(input);
+
+    document.body.appendChild(form);
+    form.submit();
+    document.body.removeChild(form);
+
+    // Limpiar iframe despues de unos segundos
+    setTimeout(() => {
+        if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+    }, 5000);
 }
 
 // ===== TOAST =====
